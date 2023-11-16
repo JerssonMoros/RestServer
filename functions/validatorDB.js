@@ -49,10 +49,21 @@ const existProductId = async ( id ) =>{
     }
 };
 
+//Validar un coleccion en una lista de colecciones.
+
+const validarColeccion = (coleccion = '', colecciones = []) => {
+    const existe = colecciones.includes(coleccion);
+    if ( !existe ) {
+        throw new Error( `La cleccion ${coleccion} no es una coleccion permitida`)
+    }
+    return true
+}
+
 module.exports = { 
     validarRol,
     validarEmail,
     existUserID,
     existCategoryId,
     existProductId,
+    validarColeccion,
 } 
